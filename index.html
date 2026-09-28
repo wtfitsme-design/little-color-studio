@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f3eb"><title>小小调色家 · 把颜色揉在一起</title>
+<link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+<svg class="svg-defs" xmlns="http://www.w3.org/2000/svg"><defs>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4Z"/></symbol>
+<symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1.8 8M4 4v6h6"/></symbol>
+<symbol id="i-brush" viewBox="0 0 24 24"><path d="m10 14 9-10a2 2 0 0 1 3 3L12 16M10 14l2 2c0 5-5 6-9 4 4-1 1-6 7-6Z"/></symbol>
+<symbol id="i-mix" viewBox="0 0 24 24"><path d="M10 12c-3-4 1-9 5-8s5 5 2 8S5 11 4 16s10 7 14 2M17 14l2 4 3-3"/></symbol>
+<symbol id="i-knife" viewBox="0 0 24 24"><path d="m14 13 5-9c1-2-1-3-3-1L5 11c-1 1 0 3 2 3l7-1ZM12 14l-2 3 4 5c1 1 3-1 2-2l-3-4"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20S2 14 2 7a5 5 0 0 1 10-1A5 5 0 0 1 22 7c0 7-10 13-10 13Z"/></symbol>
+<symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 4 5 9H2v6h3l6 5ZM15 8c3 2 3 6 0 8M18 5c5 4 5 10 0 14"/></symbol>
+</defs></svg>
+<div class="app">
+<header class="topbar">
+<a class="brand" href="./" aria-label="小小调色家首页"><span class="flower"><i></i><i></i><i></i><i></i><b></b></span><span>小小调色家<small>LITTLE COLOR STUDIO</small></span></a>
+<div class="header-right"><span class="free-tag"><span></span> 自由玩，慢慢发现</span><button class="sound icon-button" id="sound" aria-label="打开声音" aria-pressed="false" title="打开声音"><svg><use href="#i-volume"/></svg><span class="mute-line"></span></button></div>
+</header>
+<main>
+<div class="intro"><div class="eyebrow"><span></span> 每一种新颜色，都是一个小发现 <span></span></div><h1>把颜色<span class="title-mark">揉在一起</span>吧！<svg><use href="#i-spark"/></svg></h1><p>挤一点颜料，用手指搅一搅，看看会变成什么颜色。</p></div>
+<div class="workspace">
+<aside class="paint-tray"><div class="section-label"><span>你的颜料</span><span class="mini-badge">5 色</span></div><p class="aside-tip">点一下，挤一点</p><div class="paints" id="paints"></div><div class="tray-note"><svg viewBox="0 0 40 40"><path d="M9 24c-2-13 9-18 15-13s-1 13-7 10 3-9 11-4M24 12l5 5-5 4"/></svg><span>多一点、少一点<br>颜色也会不一样哦</span></div></aside>
+<section class="studio" aria-label="颜料调色盘"><div class="studio-meta"><span><i></i> 我的调色盘</span><button id="clear" class="quiet-button"><svg><use href="#i-reset"/></svg>擦干净</button></div><div class="palette-wrap" id="paletteWrap"><canvas id="wood" width="960" height="620" aria-hidden="true"></canvas><canvas id="paint" width="768" height="496" tabindex="0" role="img" aria-label="互动调色盘：用手指或鼠标拖动混合颜料；也可用下方的一起搅拌按钮"></canvas><div id="placement" class="placement" hidden><canvas id="placementCanvas" width="220" height="150" aria-hidden="true"></canvas><button id="placementBlob" class="placement-blob" aria-label="拖动新颜料到想放的位置"></button><span class="placement-label">拖到想放的位置</span><button id="placeHere" class="place-here">放在这里</button></div><div id="firstHint" class="first-hint"><svg viewBox="0 0 100 65"><path d="M16 48c5-36 61-45 66-16 5 30-49 33-46 8 2-14 21-18 28-8M59 24l7 9-11 3"/></svg><span>在这里画个圈圈</span></div><div class="brush-cursor" id="cursor"></div><div class="palette-caption"><span>✦</span> 没有标准答案，尽情玩吧</div></div><div class="toolbar"><div class="tools" role="group" aria-label="选择涂抹工具"><button class="tool active" data-tool="mix" aria-pressed="true"><svg><use href="#i-mix"/></svg><span>搅一搅</span></button><button class="tool" data-tool="brush" aria-pressed="false"><svg><use href="#i-brush"/></svg><span>小画笔</span></button><button class="tool" data-tool="knife" aria-pressed="false"><svg><use href="#i-knife"/></svg><span>调色刀</span></button></div><span class="tool-divider"></span><button id="brushSize" class="size-button" aria-label="切换为大笔触" title="切换笔触大小"><i></i><i class="selected"></i><i></i></button><button id="autoMix" class="auto-mix" title="自动示范搅拌，也支持键盘操作">一起搅拌 <span>↻</span></button></div><p class="tool-hint" id="toolHint">按住并慢慢拖动，让两种颜料碰个面</p></section>
+<aside class="discovery"><div class="challenge-card"><div class="card-eyebrow"><svg><use href="#i-spark"/></svg> 颜色小任务<button id="nextChallenge" aria-label="换个颜色任务" title="换个任务">↗</button></div><div class="target-art" id="targetArt"></div><h2 id="challengeTitle">调出小树叶的绿</h2><p id="challengeText">哪两种颜色，可以变成绿色呢？</p><button id="showHint" class="hint-button">给我一点提示 <span>＋</span></button><div class="challenge-hint" id="challengeHint" hidden></div><div class="challenge-success" id="challengeSuccess" hidden>✓ 你找到它啦，真棒！</div></div><div class="mix-card"><span class="section-label">刚刚搅到的颜色</span><div id="resultDaub" class="result-daub"><canvas id="resultCanvas" width="220" height="150"></canvas><span id="resultPlaceholder">等你来发现</span></div><h3 id="resultName">搅一搅，看看吧</h3><button class="save-button" id="saveColor" disabled><svg><use href="#i-heart"/></svg> 收藏这个颜色</button></div></aside>
+</div>
+<section class="collection"><div class="collection-heading"><span class="collection-icon">✿</span><div><h2>我的颜色口袋 <span id="collectionCount">0</span></h2><p>把喜欢的颜色，悄悄装进口袋</p></div></div><div id="collectionColors" class="collection-colors"><span class="empty-swatch"></span><span class="empty-swatch"></span><span class="empty-swatch"></span><p class="collection-empty">第一种宝藏颜色，会是什么呢？</p></div><button class="export-button" id="export" aria-label="保存调色盘为图片"><svg viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/></svg><span>带走我的作品</span></button></section>
+</main><footer><span>小小的手，大大的色彩世界。</span><span>给好奇心一点颜色 <i>✳</i></span></footer>
+</div><div class="toast" id="toast" role="status" aria-live="polite"></div><div class="confetti" id="confetti" aria-hidden="true"></div>
+<script src="app.js?v=3"></script>
+</body></html>
