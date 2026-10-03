@@ -3,7 +3,114 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f3eb"><title>小小调色家 · 把颜色揉在一起</title>
-<link rel="stylesheet" href="style.css?v=3">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#f5f3eb;--ink:#384941;--muted:#92968b;--green:#506e51;--border:#e7e7db;--paper:#fffcf7;--font:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:20px;-webkit-font-smoothing:antialiased}body:before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.12;z-index:5;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%239c9383' opacity='.25' filter='url(%23n)' d='M0 0h160v160H0z'/%3E%3C/svg%3E")}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}button:focus-visible,a:focus-visible,canvas:focus-visible{outline:3px solid #9ba877;outline-offset:5px}button{transition:transform .2s,background .2s,box-shadow .2s}button:active{transform:scale(.96)}button:disabled{cursor:default}button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}svg{overflow:visible}.svg-defs{position:absolute;width:0;height:0;overflow:hidden}.app{max-width:1480px;margin:auto;padding:0 54px}.topbar{height:105px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}.brand{display:flex;gap:15px;align-items:center;color:var(--ink);text-decoration:none;font-size:21px;letter-spacing:1px;font-weight:800}.brand small{font-size:12px;letter-spacing:2.1px;font-weight:500;display:block;margin-top:5px;color:#8b9386}.flower{position:relative;width:43px;height:43px;transform:rotate(-15deg)}.flower i{width:23px;height:23px;border-radius:50%;position:absolute;background:#df975e}.flower i:nth-child(2){right:0;background:#e8bd58}.flower i:nth-child(3){bottom:0;background:#658b75}.flower i:nth-child(4){right:0;bottom:0;background:#6c94ae}.flower b{position:absolute;width:12px;height:12px;border-radius:50%;background:#f5edcf;left:16px;top:16px}.header-right{display:flex;align-items:center;gap:28px}.free-tag{font-size:18px;color:#8b9184;display:flex;align-items:center;gap:8px}.free-tag>span{height:6px;width:6px;background:#8ca27c;border-radius:50%}.icon-button{position:relative;display:grid;place-content:center;width:40px;height:40px;background:#eeeee4;border-radius:50%;color:#78876d}.mute-line{height:1.5px;width:23px;background:currentColor;position:absolute;left:9px;top:19px;transform:rotate(-48deg);box-shadow:0 0 0 2px #eeeee4}.sound[aria-pressed=true] .mute-line{display:none}.intro{text-align:center;padding:34px 0 23px}.eyebrow{display:flex;justify-content:center;align-items:center;gap:10px;font-size:16px;letter-spacing:2px;color:#899580}.eyebrow span{width:17px;height:1px;background:#bdc6b0}h1{font-weight:800;font-size:37px;letter-spacing:1px;margin:12px 0 13px;position:relative;display:inline-block;line-height:1.5}.title-mark{position:relative}.title-mark:after{content:'';position:absolute;left:0;right:0;bottom:-5px;height:9px;background:#e2b86d;opacity:.6;clip-path:polygon(0 40%,40% 0,100% 35%,99% 85%,25% 65%,0 100%)}h1>svg{position:absolute;right:-33px;top:-1px;fill:#c9a05f;stroke:none;width:20px;height:20px;transform:rotate(12deg)}.intro>p{font-size:18px;color:#8e9489;margin:4px 0 0;letter-spacing:.4px}.workspace{display:grid;grid-template-columns:170px minmax(400px,1fr) 194px;gap:28px;align-items:start}.paint-tray{padding:22px 16px 16px;border:1px solid #e6e6da;border-radius:20px;background:#efeee4;margin-top:30px}.section-label{font-size:18px;font-weight:600;letter-spacing:.5px;display:flex;align-items:center;justify-content:space-between}.mini-badge{font-size:14px;font-weight:500;color:#9b9f91;background:#e6e6da;padding:3px 6px;border-radius:5px}.aside-tip{font-size:16px;color:#939888;margin:6px 0 16px}.paints{display:flex;flex-direction:column;gap:8px}.paint-button{position:relative;height:61px;display:flex;align-items:center;gap:8px;background:#fbfaf5;border:1px solid #e5e4da;border-radius:11px;padding:4px 9px 4px 0;box-shadow:0 2px 1px #dfdfd326;text-align:left;touch-action:manipulation}.paint-button:hover{background:#fffef9;transform:translateY(-2px);box-shadow:0 5px 12px #7b775811}.paint-button>canvas{width:67px;height:51px;flex-shrink:0}.paint-button .paint-label{font-size:18px;font-weight:600;flex:1;letter-spacing:1px}.paint-button .add-mark{font-size:16px;color:#a3a898;font-weight:300}.tray-note{display:flex;gap:7px;align-items:center;margin-top:16px;color:#99a089;font-size:14px;line-height:1.8}.tray-note>svg{width:29px;fill:none;stroke:#adb299;stroke-width:1.6;stroke-linecap:round;flex-shrink:0;transform:rotate(-10deg)}.studio{min-width:0}.studio-meta{display:flex;align-items:center;justify-content:space-between;font-size:16px;padding:6px 23px;color:#8e9587}.studio-meta>span{display:flex;align-items:center;gap:6px}.studio-meta i{height:5px;width:5px;background:#97a681;border-radius:50%}.quiet-button{display:flex;align-items:center;gap:6px;font-size:16px;color:#8f9687;min-height:36px;padding:0 9px}.quiet-button:hover{background:#eaece0;border-radius:8px}.quiet-button svg{width:14px;height:14px}.palette-wrap{position:relative;aspect-ratio:960/620;width:calc(100% + 34px);margin:0 -17px;isolation:isolate}.palette-wrap>canvas{position:absolute;width:100%;height:100%;left:0;top:0}.palette-wrap #wood{filter:drop-shadow(0 16px 13px #76614320) drop-shadow(0 3px 2px #725f4825)}#paint{touch-action:none;cursor:none}.first-hint{pointer-events:none;position:absolute;top:58%;left:41%;text-align:center;color:#7b7962;transition:opacity .4s;transform:rotate(-8deg);font-size:18px;letter-spacing:1px}.first-hint>svg{width:67px;height:52px;display:block;margin:0 auto 7px;fill:none;stroke:#7b7962;stroke-width:1.9;stroke-linecap:round;stroke-dasharray:4 4}.first-hint.hidden{opacity:0}.palette-caption{position:absolute;bottom:8%;right:19%;font-size:14px;letter-spacing:1px;color:#a99977;pointer-events:none;transform:rotate(-5deg)}.palette-caption>span{font-size:18px;margin-right:3px}.brush-cursor{position:absolute;border:1.5px solid #ffffffd9;outline:1px solid #4e5a343b;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);display:none;box-shadow:0 1px 4px #45372a1c}.toolbar{margin:9px auto 0;display:flex;justify-content:center;align-items:center;gap:14px;width:max-content;max-width:100%;background:#fcfbf5;border:1px solid #e5e5d9;padding:6px 10px 6px 7px;border-radius:15px;box-shadow:0 4px 10px #6f735208}.tools{display:flex;gap:4px}.tool{display:flex;align-items:center;justify-content:center;gap:7px;padding:12px;font-size:17px;border-radius:10px;min-height:43px;white-space:nowrap}.tool svg{width:19px;height:19px}.tool.active{background:#5d7457;color:#fffdf1;box-shadow:0 3px 5px #536b4222}.tool:not(.active):hover{background:#eeefe6}.tool-divider{height:23px;width:1px;background:#e5e6db}.size-button{display:flex;align-items:center;gap:6px;padding:10px 1px;min-height:42px}.size-button i{border-radius:50%;background:#bec2af;height:5px;width:5px}.size-button i:nth-child(2){width:9px;height:9px}.size-button i:nth-child(3){width:13px;height:13px}.size-button .selected{background:#64795b;outline:1px solid #64795b;outline-offset:3px}.auto-mix{font-size:16px;white-space:nowrap;padding:8px 4px;color:#7c886e}.auto-mix>span{font-size:18px;margin-left:3px}.auto-mix:disabled{opacity:.5}.tool-hint{text-align:center;font-size:16px;color:#a0a492;margin:13px 0 0}.discovery{margin-top:29px;display:flex;flex-direction:column;gap:16px}.challenge-card{padding:16px 15px 14px;border:1px solid #e0e5d4;border-radius:17px;background:#ebeee0}.card-eyebrow{display:flex;align-items:center;gap:5px;font-size:16px;color:#839274}.card-eyebrow>svg{width:13px;height:13px;fill:currentColor}.card-eyebrow>button{margin-left:auto;font-size:20px;line-height:20px;color:#96a084;width:30px;height:27px;margin-right:-6px;margin-top:-5px}.target-art{height:83px;display:flex;align-items:center;justify-content:center;padding-top:8px}.target-art>svg{height:69px;width:90px}.challenge-card h2{font-size:20px;margin:9px 0 6px;text-align:center;font-weight:700;letter-spacing:.3px}.challenge-card p{font-size:14px;color:#929b85;text-align:center;line-height:1.7;margin:0 -4px 11px}.hint-button{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #dbe1ce;width:100%;font-size:16px;padding:12px 0 0;color:#839074;text-align:left}.hint-button span{font-size:20px}.challenge-hint{font-size:16px;line-height:1.8;color:#6c815c;padding-top:8px}.challenge-success{font-size:16px;color:#4a7046;border-top:1px solid #dbe1ce;padding-top:10px;text-align:center}.mix-card{background:#faf9f2;border:1px solid #e6e7db;border-radius:17px;padding:17px 15px 13px;text-align:center}.mix-card>.section-label{font-size:16px;text-align:left;font-weight:500;color:#8e9585}.result-daub{position:relative;height:77px;margin:4px 0 0;display:grid;place-content:center}.result-daub>canvas{width:110px;height:75px;position:absolute;top:0;left:calc(50% - 55px)}.result-daub>span{font-size:14px;color:#b2b5a5;border:1px dashed #dcded0;border-radius:55% 45% 55% 45%;padding:14px 21px;transform:rotate(-8deg)}.mix-card h3{font-size:18px;margin:0 0 10px;font-weight:600}.save-button{margin-top:15px;border:1px solid #dce1d1;border-radius:8px;min-height:35px;display:flex;justify-content:center;align-items:center;gap:6px;width:100%;font-size:16px;color:#6c815b;background:#f0f2e6}.save-button svg{width:13px;height:13px}.save-button:disabled{opacity:.45}.save-button:not(:disabled):hover{background:#e4ead6}.collection{margin-top:30px;min-height:107px;background:#eeeee3;border:1px solid #e4e5d8;border-radius:17px;padding:22px 24px;display:flex;align-items:center;gap:30px}.collection-heading{display:flex;gap:13px;align-items:center;flex-shrink:0}.collection-icon{font-size:31px;color:#a6b28e}.collection-heading h2{font-size:18px;font-weight:600;margin:0 0 7px;display:flex;gap:10px;align-items:center}.collection-heading h2>span{font-size:12px;background:#dfe4d0;color:#819169;min-width:17px;line-height:17px;text-align:center;border-radius:50%}.collection-heading p{font-size:14px;margin:0;color:#9da38e}.collection-colors{display:flex;align-items:center;gap:12px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:thin;padding:4px}.empty-swatch{border:1px dashed #cfd5be;width:39px;height:39px;border-radius:50%;flex-shrink:0}.collection-empty{font-size:16px;color:#abb09b;margin-left:6px;white-space:nowrap}.saved-color{position:relative;width:43px;height:48px;flex-shrink:0;padding:0}.saved-color>i{display:block;width:35px;height:35px;margin:auto;background:var(--saved);border-radius:48% 54% 42% 55%;box-shadow:inset 1px 2px 5px #ffffff55,inset -2px -2px 4px #0000001c;transform:rotate(-10deg)}.saved-color>span{display:block;font-size:12px;color:#8c967f;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.export-button{font-size:16px;color:#8d9980;display:flex;align-items:center;gap:7px;white-space:nowrap;padding:10px;border:1px solid #dce1cf;border-radius:8px}.export-button svg{height:15px;width:15px}footer{display:flex;justify-content:space-between;padding:24px 4px;font-size:14px;color:#adb2a0;letter-spacing:.7px}footer i{font-size:20px;font-style:normal;margin-left:5px;color:#b0b797}.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,25px);opacity:0;pointer-events:none;z-index:30;background:#43593fee;color:#fff9e9;padding:13px 22px;border-radius:14px;font-size:18px;box-shadow:0 8px 30px #354c3825;transition:.3s;max-width:90vw;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.confetti{position:fixed;inset:0;pointer-events:none;z-index:20;overflow:hidden}.confetti i{position:absolute;top:-15px;width:8px;height:12px;border-radius:3px;animation:fall 2.4s ease-in forwards}@keyframes fall{to{transform:translate(var(--drift),95vh) rotate(500deg);opacity:0}}@media(min-width:1500px){.intro{padding-top:44px;padding-bottom:31px}.workspace{grid-template-columns:182px minmax(400px,1fr) 205px;gap:32px}.collection{margin-top:35px}}@media(max-width:1150px){.app{padding:0 28px}.workspace{grid-template-columns:145px minmax(320px,1fr) 174px;gap:15px}.paint-tray{padding:17px 11px}.paint-button{gap:2px}.paint-button>canvas{width:57px}.toolbar{gap:9px}.tool{padding:10px 8px;gap:5px}.auto-mix{font-size:14px}.collection-empty{display:none}.discovery{gap:12px}.challenge-card,.mix-card{padding:14px 12px}.palette-wrap{width:calc(100% + 20px);margin:0 -10px}.studio-meta{padding-left:9px;padding-right:9px}.first-hint{font-size:16px}.collection{margin-top:25px;gap:20px}}@media(max-width:900px){.app{padding:0 22px}.topbar{height:84px}.intro{padding:28px 0 20px}h1{font-size:31px}.workspace{grid-template-columns:125px minmax(0,1fr);gap:20px}.discovery{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;margin-top:4px;gap:15px}.paint-tray{margin-top:35px;padding:15px 9px}.paint-button{height:56px}.paint-button>canvas{width:51px;height:42px}.paint-button .paint-label{font-size:17px}.paint-button .add-mark{font-size:18px}.tray-note{font-size:12px;gap:2px}.tray-note svg{width:23px}.challenge-card{position:relative;padding:18px 18px 16px 95px;min-height:173px}.target-art{position:absolute;left:9px;top:50px;width:80px}.challenge-card h2{text-align:left}.challenge-card p{text-align:left;margin:0 0 10px}.mix-card{position:relative;padding:18px 18px 15px 110px;min-height:173px}.mix-card>.section-label{margin-bottom:15px}.result-daub{position:absolute;left:1px;top:45px;width:110px}.mix-card h3{text-align:left}.save-button{margin-top:10px;max-width:180px}.tool-hint{margin-top:13px}.toolbar{margin-top:10px}.collection{margin-top:20px}.collection-heading p{font-size:12px}.export-button>span{display:none}.collection{gap:18px}.collection-colors{gap:9px}.first-hint{top:60%}.palette-caption{bottom:9%}.studio-meta{font-size:16px}}@media(max-width:600px){.app{padding:0 17px}.topbar{height:76px}.brand{font-size:18px;gap:10px}.brand small{font-size:9px;letter-spacing:1.7px}.flower{transform:scale(.82) rotate(-15deg);margin:-3px}.header-right{gap:9px}.free-tag{display:none}.icon-button{width:35px;height:35px}.mute-line{left:6px;top:16px}.intro{padding:25px 0 20px}.eyebrow{font-size:12px;letter-spacing:1px}h1{font-size:27px;margin-top:10px;margin-bottom:12px;letter-spacing:0}h1>svg{width:14px;height:14px;right:-21px}.intro>p{font-size:16px;max-width:280px;margin:0 auto;line-height:1.9}.workspace{display:flex;flex-direction:column;gap:13px}.paint-tray{width:100%;margin-top:0;padding:12px 12px 10px;border-radius:14px}.paint-tray>.section-label{display:inline-flex;font-size:16px;gap:9px}.mini-badge{font-size:12px;padding:2px 5px}.aside-tip{display:inline;margin-left:10px;font-size:14px}.paints{flex-direction:row;gap:7px;margin-top:9px}.paint-button{flex:1;min-width:0;display:flex;flex-direction:column;gap:0;height:71px;padding:0 2px 7px;border-radius:9px}.paint-button>canvas{width:100%;height:44px}.paint-button .paint-label{font-size:16px;flex:0}.paint-button .add-mark{display:none}.tray-note{display:none}.studio{width:100%}.studio-meta{padding:0 3px}.palette-wrap{width:calc(100% + 30px);margin:-5px -15px 0;aspect-ratio:960/650}.palette-wrap>canvas{height:auto;aspect-ratio:960/620}.first-hint{font-size:14px;top:57%;left:41%}.first-hint>svg{height:37px;width:53px}.palette-caption{bottom:13%;font-size:11px;right:18%}.toolbar{gap:9px;margin-top:-5px;padding:5px 8px 5px 5px;border-radius:13px}.tool{padding:10px 8px;font-size:16px;gap:5px;min-height:40px}.tool>svg{width:16px;height:16px}.auto-mix{font-size:14px;padding:7px 0}.auto-mix>span{display:none}.size-button{gap:5px}.tool-divider{height:19px}.tool-hint{font-size:14px;margin:11px 0 6px}.discovery{display:grid;width:100%;gap:10px;margin-top:0}.challenge-card{padding:12px;min-height:216px}.card-eyebrow{font-size:14px}.target-art{position:static;width:100%;height:67px;padding-top:0}.target-art>svg{height:58px}.challenge-card h2{text-align:center;font-size:18px;margin:7px 0 6px}.challenge-card p{text-align:center;font-size:12px;margin:0 0 10px}.hint-button{font-size:14px;padding-top:9px}.challenge-hint{font-size:14px}.mix-card{padding:15px 12px 12px;min-height:216px}.mix-card>.section-label{font-size:14px;margin-bottom:2px}.result-daub{position:relative;left:auto;top:auto;width:auto;height:73px;margin:0}.mix-card h3{text-align:center;font-size:17px}.save-button{font-size:14px;margin-top:12px;min-height:32px}.collection{padding:16px 12px;gap:12px;flex-wrap:wrap;min-height:132px;margin-top:17px}.collection-heading{gap:9px;flex:1}.collection-icon{font-size:26px}.collection-heading h2{font-size:17px;margin-bottom:5px}.collection-colors{order:3;flex-basis:100%;gap:12px}.collection-empty{display:block;font-size:12px;margin:0}.empty-swatch{width:29px;height:29px}.export-button{padding:9px}.collection-heading p{font-size:12px}footer{font-size:11px;padding:19px 0 25px;letter-spacing:.3px}.brush-cursor{display:none!important}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Readable controls for young children; keep the palette central as text grows. */
+[hidden]{display:none!important}
+.workspace{grid-template-columns:190px minmax(0,1fr) 240px;gap:24px}
+.intro>p{line-height:1.8;color:#69745f}
+.section-label,.paint-button .paint-label{font-weight:700}
+.aside-tip,.studio-meta,.quiet-button,.tool-hint,.challenge-card p,.card-eyebrow,.mix-card>.section-label,.collection-heading p,.collection-empty,.tray-note,.export-button{color:#69755f}
+.paint-button{min-height:68px}
+.paint-button .paint-label{font-size:20px}
+.tray-note{line-height:1.7}
+.tool{min-height:48px;padding:12px 10px}
+.toolbar{gap:10px;flex-wrap:wrap}
+.quiet-button,.hint-button,.save-button,.export-button{min-height:44px}
+.tool-hint{line-height:1.8}
+.challenge-card h2{line-height:1.6}
+.challenge-card p{line-height:1.8;margin:0 0 12px}
+.card-eyebrow>button{width:44px;height:44px;flex-shrink:0;margin-top:-10px;margin-bottom:-6px}
+.mix-card>.section-label{line-height:1.5}
+.result-daub{height:94px;margin:8px 0}
+.result-daub>canvas{width:132px;height:90px;left:calc(50% - 66px)}
+.mix-card h3{line-height:1.6;margin:0 0 8px;font-weight:600}
+.save-button{margin-top:12px}
+.collection{gap:22px}
+.collection-heading h2>span{min-width:24px;line-height:24px}
+.saved-color{width:72px;height:64px}
+.saved-color>span{font-size:14px;line-height:1.6}
+.collection-empty{white-space:normal;line-height:1.6}
+.toast{line-height:1.7}
+@media(min-width:1500px){.workspace{grid-template-columns:200px minmax(0,1fr) 250px;gap:28px}}
+@media(max-width:1150px){
+ .workspace{grid-template-columns:160px minmax(0,1fr) 214px;gap:16px}
+ .toolbar{width:100%;gap:8px}
+ .auto-mix{flex-basis:100%;border-top:1px solid #e5e6db;padding:8px 0}
+ .tray-note{font-size:12px}
+ .paint-tray{padding-left:10px;padding-right:10px}
+}
+@media(max-width:900px){
+ .workspace{grid-template-columns:150px minmax(0,1fr);gap:18px}
+ .discovery{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .challenge-card,.mix-card{padding:18px;min-width:0}
+ .target-art{position:static;width:100%;height:80px;padding-top:8px}
+ .challenge-card h2,.challenge-card p,.mix-card h3{text-align:center}
+ .result-daub{position:relative;left:auto;top:auto;width:auto;height:94px;margin:8px 0}
+ .save-button{max-width:none}
+ .collection{flex-wrap:wrap;gap:16px}
+ .collection-heading{flex:1}
+ .collection-colors{flex-basis:100%;order:3}
+ .export-button>span{display:inline}
+ .toolbar{width:max-content}
+ .auto-mix{flex-basis:auto;border:0;padding:8px 4px}
+}
+@media(max-width:600px){
+ .intro>p{max-width:340px;font-size:16px}
+ .eyebrow{font-size:12px;letter-spacing:.5px}
+ .paints{gap:6px}
+ .paint-button{height:82px;min-height:82px}
+ .paint-tray>.section-label{font-size:16px}
+ .aside-tip{font-size:14px}
+ .toolbar{width:100%;display:grid;grid-template-columns:auto 1fr;gap:8px;padding:8px}
+ .tools{grid-column:1/-1;justify-content:space-between;gap:5px}
+ .tool{flex:1;font-size:16px;padding:10px 6px;gap:6px}
+ .tool>svg{width:18px;height:18px}
+ .tool-divider{display:none}
+ .size-button{padding:10px 14px;gap:10px}
+ .auto-mix{justify-self:end;font-size:16px;padding:8px 12px;min-height:44px;background:#eef0e3;border-radius:9px}
+ .auto-mix>span{display:inline}
+ .tool-hint{font-size:14px}
+ .discovery{gap:10px}
+ .challenge-card,.mix-card{padding:14px 10px}
+ .challenge-card h2{font-size:18px;letter-spacing:0}
+ .challenge-card p,.hint-button,.challenge-hint,.challenge-success{font-size:14px}
+ .card-eyebrow,.mix-card>.section-label{font-size:14px}
+ .card-eyebrow{gap:3px}
+ .card-eyebrow>button{width:34px;min-height:44px;margin-left:auto;margin-right:-7px}
+ .card-eyebrow>svg{width:12px;height:12px;flex-shrink:0}
+ .mix-card h3{font-size:17px}
+ .save-button{font-size:14px;gap:4px;padding:8px 4px}
+ .save-button svg{width:16px;height:16px;flex-shrink:0}
+ .result-daub>span{font-size:12px;padding:12px}
+ .collection-heading p{font-size:12px}
+ .collection-empty{font-size:12px;flex:1}
+ .collection-heading h2{font-size:17px}
+ .export-button>span{display:none}
+ footer{font-size:11px;gap:16px;line-height:1.7}
+ footer>span:last-child{text-align:right}
+}
+@media(max-width:360px){.eyebrow{font-size:11px}.card-eyebrow>svg{display:none}.discovery{gap:8px}.save-button{font-size:13px}.first-hint{font-size:13px}.palette-caption{font-size:9px}}
+
+/* A separate, movable daub is committed only once it is placed. */
+.placement{position:absolute;z-index:4;transform:translate(-50%,-50%);pointer-events:none;filter:drop-shadow(0 9px 8px #70593b38)}
+.placement canvas{position:absolute;width:145%;height:145%;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
+.placement-blob{position:absolute;inset:0;width:100%;height:100%;border-radius:48% 53% 45% 55%;border:2px dashed #fff8;box-shadow:0 0 0 2px #66744b66,0 0 0 7px #fff4;pointer-events:auto;touch-action:none;cursor:grab;transition:none}
+.placement-blob:active{transform:none}
+.placement.dragging .placement-blob{border-color:#fff;box-shadow:0 0 0 3px #66744b88,0 0 0 9px #fff5;cursor:grabbing}
+.placement-label{position:absolute;left:50%;bottom:calc(100% + 15px);transform:translateX(-50%);white-space:nowrap;background:#fffaf0ed;border-radius:9px;padding:5px 10px;font-size:14px;color:#4e653e;pointer-events:none}
+.place-here{position:absolute;left:50%;top:calc(100% + 13px);transform:translateX(-50%);white-space:nowrap;min-height:44px;padding:8px 14px;border-radius:10px;background:#4f6b4b;color:#fffdf2;font-size:16px;box-shadow:0 5px 13px #4b5c392e;pointer-events:auto}
+.place-here:active{transform:translateX(-50%) scale(.96)}
+.place-here:hover{background:#3f5c40}
+.placement.dragging .place-here{visibility:hidden}
+@media(max-width:600px){.placement-label{font-size:12px;bottom:calc(100% + 9px)}.place-here{top:calc(100% + 9px);font-size:14px;padding:6px 10px}}
+
+/* Nine-color tray: keep labels readable on small screens. */
+@media(max-width:600px){.paints{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}.paint-button{width:100%;min-width:0}.paint-button .paint-label{font-size:15px;letter-spacing:0}}
+
+</style>
 </head>
 <body>
 <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg"><defs>
@@ -23,12 +130,448 @@
 <main>
 <div class="intro"><div class="eyebrow"><span></span> 每一种新颜色，都是一个小发现 <span></span></div><h1>把颜色<span class="title-mark">揉在一起</span>吧！<svg><use href="#i-spark"/></svg></h1><p>挤一点颜料，用手指搅一搅，看看会变成什么颜色。</p></div>
 <div class="workspace">
-<aside class="paint-tray"><div class="section-label"><span>你的颜料</span><span class="mini-badge">5 色</span></div><p class="aside-tip">点一下，挤一点</p><div class="paints" id="paints"></div><div class="tray-note"><svg viewBox="0 0 40 40"><path d="M9 24c-2-13 9-18 15-13s-1 13-7 10 3-9 11-4M24 12l5 5-5 4"/></svg><span>多一点、少一点<br>颜色也会不一样哦</span></div></aside>
+<aside class="paint-tray"><div class="section-label"><span>你的颜料</span><span class="mini-badge">9 色</span></div><p class="aside-tip">点一下，挤一点</p><div class="paints" id="paints"></div><div class="tray-note"><svg viewBox="0 0 40 40"><path d="M9 24c-2-13 9-18 15-13s-1 13-7 10 3-9 11-4M24 12l5 5-5 4"/></svg><span>多一点、少一点<br>颜色也会不一样哦</span></div></aside>
 <section class="studio" aria-label="颜料调色盘"><div class="studio-meta"><span><i></i> 我的调色盘</span><button id="clear" class="quiet-button"><svg><use href="#i-reset"/></svg>擦干净</button></div><div class="palette-wrap" id="paletteWrap"><canvas id="wood" width="960" height="620" aria-hidden="true"></canvas><canvas id="paint" width="768" height="496" tabindex="0" role="img" aria-label="互动调色盘：用手指或鼠标拖动混合颜料；也可用下方的一起搅拌按钮"></canvas><div id="placement" class="placement" hidden><canvas id="placementCanvas" width="220" height="150" aria-hidden="true"></canvas><button id="placementBlob" class="placement-blob" aria-label="拖动新颜料到想放的位置"></button><span class="placement-label">拖到想放的位置</span><button id="placeHere" class="place-here">放在这里</button></div><div id="firstHint" class="first-hint"><svg viewBox="0 0 100 65"><path d="M16 48c5-36 61-45 66-16 5 30-49 33-46 8 2-14 21-18 28-8M59 24l7 9-11 3"/></svg><span>在这里画个圈圈</span></div><div class="brush-cursor" id="cursor"></div><div class="palette-caption"><span>✦</span> 没有标准答案，尽情玩吧</div></div><div class="toolbar"><div class="tools" role="group" aria-label="选择涂抹工具"><button class="tool active" data-tool="mix" aria-pressed="true"><svg><use href="#i-mix"/></svg><span>搅一搅</span></button><button class="tool" data-tool="brush" aria-pressed="false"><svg><use href="#i-brush"/></svg><span>小画笔</span></button><button class="tool" data-tool="knife" aria-pressed="false"><svg><use href="#i-knife"/></svg><span>调色刀</span></button></div><span class="tool-divider"></span><button id="brushSize" class="size-button" aria-label="切换为大笔触" title="切换笔触大小"><i></i><i class="selected"></i><i></i></button><button id="autoMix" class="auto-mix" title="自动示范搅拌，也支持键盘操作">一起搅拌 <span>↻</span></button></div><p class="tool-hint" id="toolHint">按住并慢慢拖动，让两种颜料碰个面</p></section>
 <aside class="discovery"><div class="challenge-card"><div class="card-eyebrow"><svg><use href="#i-spark"/></svg> 颜色小任务<button id="nextChallenge" aria-label="换个颜色任务" title="换个任务">↗</button></div><div class="target-art" id="targetArt"></div><h2 id="challengeTitle">调出小树叶的绿</h2><p id="challengeText">哪两种颜色，可以变成绿色呢？</p><button id="showHint" class="hint-button">给我一点提示 <span>＋</span></button><div class="challenge-hint" id="challengeHint" hidden></div><div class="challenge-success" id="challengeSuccess" hidden>✓ 你找到它啦，真棒！</div></div><div class="mix-card"><span class="section-label">刚刚搅到的颜色</span><div id="resultDaub" class="result-daub"><canvas id="resultCanvas" width="220" height="150"></canvas><span id="resultPlaceholder">等你来发现</span></div><h3 id="resultName">搅一搅，看看吧</h3><button class="save-button" id="saveColor" disabled><svg><use href="#i-heart"/></svg> 收藏这个颜色</button></div></aside>
 </div>
 <section class="collection"><div class="collection-heading"><span class="collection-icon">✿</span><div><h2>我的颜色口袋 <span id="collectionCount">0</span></h2><p>把喜欢的颜色，悄悄装进口袋</p></div></div><div id="collectionColors" class="collection-colors"><span class="empty-swatch"></span><span class="empty-swatch"></span><span class="empty-swatch"></span><p class="collection-empty">第一种宝藏颜色，会是什么呢？</p></div><button class="export-button" id="export" aria-label="保存调色盘为图片"><svg viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5"/></svg><span>带走我的作品</span></button></section>
 </main><footer><span>小小的手，大大的色彩世界。</span><span>给好奇心一点颜色 <i>✳</i></span></footer>
 </div><div class="toast" id="toast" role="status" aria-live="polite"></div><div class="confetti" id="confetti" aria-hidden="true"></div>
-<script src="app.js?v=3"></script>
+<script>
+(() => {
+'use strict';
+const $ = id => document.getElementById(id);
+const W=768,H=496,N=W*H,S=0.8;
+const paint=$('paint'),ctx=paint.getContext('2d',{alpha:true});
+const wood=$('wood'),wc=wood.getContext('2d');
+const pigments=[
+  {id:'red',name:'红色',label:'红',rgb:[231,70,62],tone:261.63,ryb:[1,0,0]},
+  {id:'orange',name:'橙色',label:'橙',rgb:[239,137,53],tone:277.18,ryb:[.38,.62,0]},
+  {id:'yellow',name:'黄色',label:'黄',rgb:[249,203,53],tone:293.66,ryb:[0,1,0]},
+  {id:'green',name:'绿色',label:'绿',rgb:[89,154,72],tone:311.13,ryb:[0,.45,.55]},
+  {id:'cyan',name:'青色',label:'青',rgb:[49,185,185],tone:329.63,ryb:[0,.16,.84]},
+  {id:'blue',name:'蓝色',label:'蓝',rgb:[56,126,198],tone:349.23,ryb:[0,0,1]},
+  {id:'purple',name:'紫色',label:'紫',rgb:[143,86,179],tone:369.99,ryb:[.5,0,.5]},
+  {id:'white',name:'白色',label:'白',rgb:[248,247,232],tone:392,ryb:[0,0,0]},
+  {id:'black',name:'黑色',label:'黑',rgb:[54,59,57],tone:440,ryb:[0,0,0]}
+];
+const palettePath='M 832 99 C 715 23 488 18 327 43 C 151 59 51 139 40 263 C 28 402 117 506 258 550 C 379 589 541 591 693 552 C 793 527 876 466 907 380 C 931 313 895 297 857 298 C 825 298 811 286 820 261 C 833 225 895 211 897 170 C 899 142 865 112 832 99 Z';
+const outline=new Path2D(palettePath);
+const hole=new Path2D();hole.ellipse(754,430,53,37,-0.48,0,Math.PI*2);
+const shape=new Path2D(outline);shape.addPath(hole);
+const rgb=c=>`rgb(${c.map(Math.round).join(',')})`;
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const lerp=(a,b,t)=>a+(b-a)*t;
+let randomSeed=932541;
+function rand(){randomSeed=(randomSeed*1664525+1013904223)>>>0;return randomSeed/4294967296;}
+function paintWood(){
+  wc.clearRect(0,0,960,620);wc.save();wc.clip(shape,'evenodd');
+  let gradient=wc.createLinearGradient(100,20,740,640);gradient.addColorStop(0,'#e9d4a8');gradient.addColorStop(.28,'#f0dfb9');gradient.addColorStop(.67,'#e9d5aa');gradient.addColorStop(1,'#ddc497');wc.fillStyle=gradient;wc.fillRect(0,0,960,620);
+  // Long, gently bending grain and tiny pores make the palette feel like wood.
+  for(let i=0;i<1200;i++){
+    let y=rand()*750-60,x=rand()*110-60,length=500+rand()*560;let alpha=.018+rand()*.052;
+    wc.beginPath();wc.moveTo(x,y);wc.bezierCurveTo(x+length*.28,y-40-rand()*15,x+length*.65,y+24+rand()*35,x+length,y-70+rand()*25);
+    wc.strokeStyle=`rgba(123,89,44,${alpha})`;wc.lineWidth=.35+rand()*1.5;wc.stroke();
+  }
+  for(let i=0;i<24000;i++){wc.fillStyle=rand()>.45?'rgba(122,89,39,.032)':'rgba(255,255,239,.1)';wc.fillRect(rand()*960,rand()*620,rand()*2.6+.4,rand()+.3);}
+  wc.strokeStyle='#fffae087';wc.lineWidth=5;wc.stroke(outline);wc.strokeStyle='#baa07670';wc.lineWidth=4;wc.stroke(hole);
+  wc.restore();wc.strokeStyle='#a5855237';wc.lineWidth=1.5;wc.stroke(shape);
+}
+paintWood();
+const mask=new Uint8Array(N);
+for(let y=0;y<H;y++)for(let x=0;x<W;x++){if(wc.isPointInPath(shape,x/S,y/S,'evenodd'))mask[y*W+x]=1;}
+let channels=Array.from({length:pigments.length},()=>new Float32Array(N));
+let relief=new Float32Array(N),grain=new Float32Array(N);
+for(let i=0;i<N;i++)grain[i]=rand();
+let imageData=ctx.createImageData(W,H),dirty=true,currentTool='mix',brushSize=1;
+const weightsScratch=Array(pigments.length).fill(0);
+let down=false,previous=null,moveQueue=[],lastInput=null,hoverPoint=null;
+let totalAdded=2,hasMixed=false,result=null,mixDistance=0,latestBlend=null;
+let pendingPaint=null,placementDrag=null;
+const placement=$('placement'),placementBlob=$('placementBlob');
+let audioEnabled=false,audioContext=null,scrapeNode=null,scrapeGain=null,noiseBuffer=null;
+let toastTimer,hasInteracted=false,autoMixing=false,autoStart=0,currentChallenge=0,challengeWon=false,readTick=0;
+let collection=[];
+try{const saved=JSON.parse(localStorage.getItem('little-color-studio.v1')||'[]');if(Array.isArray(saved))collection=saved.filter(x=>x&&Array.isArray(x.rgb)&&x.rgb.length===3&&x.rgb.every(n=>Number.isFinite(n)&&n>=0&&n<=255)&&typeof x.name==='string').slice(0,24);}catch(e){}
+
+// Painterly RYB pigment space: the seven chromatic pigments map to a
+// compact red-yellow-blue basis, while white and black adjust the tint.
+const corners=[
+ [247,239,218],[231,70,62],[249,203,53],[241,132,43],
+ [56,126,198],[143,86,179],[89,154,72],[126,100,65]
+];
+function pigmentColor(weights,out=[0,0,0]){
+  let chroma=0,white=0,black=0,red=0,yellow=0,blue=0;
+  for(let i=0;i<pigments.length;i++){
+    const amount=Math.max(0,weights[i]||0),p=pigments[i];
+    if(p.id==='white') white+=amount;
+    else if(p.id==='black') black+=amount;
+    else { chroma+=amount; red+=amount*p.ryb[0]; yellow+=amount*p.ryb[1]; blue+=amount*p.ryb[2]; }
+  }
+  const sum=chroma+white+black;
+  if(sum<.00001){out[0]=out[1]=out[2]=0;return out;}
+  const mx=Math.max(red,yellow,blue,.00001),r=red/mx,y=yellow/mx,b=blue/mx;
+  let tw=white/(chroma+white||1),tb=black/(sum||1);
+  tw=1-Math.pow(1-tw,1.25);tb=Math.pow(tb,.8);
+  for(let j=0;j<3;j++){
+    let c0=lerp(corners[0][j],corners[1][j],r),c1=lerp(corners[2][j],corners[3][j],r),c2=lerp(corners[4][j],corners[5][j],r),c3=lerp(corners[6][j],corners[7][j],r);
+    let base=lerp(lerp(c0,c1,y),lerp(c2,c3,y),b);
+    out[j]=lerp(lerp(base,pigments[7].rgb[j],tw),pigments[8].rgb[j],tb);
+  }
+  return out;
+}
+function density(i){let total=0;for(const channel of channels)total+=channel[i];return total;}
+function makeDaub(canvas,color,seed=8){
+  let c=canvas.getContext('2d'),w=canvas.width,h=canvas.height;c.clearRect(0,0,w,h);
+  const temp=c.createImageData(w,h),p=temp.data;
+  let cx=w*.5,cy=h*.51,rx=w*.32,ry=h*.31;
+  for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+    let nx=(x-cx)/rx,ny=(y-cy)/ry,ang=Math.atan2(ny,nx),rad=Math.hypot(nx,ny);
+    let boundary=1+.05*Math.sin(ang*7+seed)+.05*Math.sin(ang*11+seed*2)+.035*Math.cos(ang*19+seed);
+    if(rad>boundary)continue;
+    let edge=clamp((boundary-rad)*18,0,1),ridge=Math.sin((x*.35+y*.73)+Math.sin(x*.08+seed)*5),fine=Math.sin(x*1.9+y*1.13);
+    let shine=(ridge>0?ridge*10:ridge*7)+(1-rad)*8+fine*2+Math.sin(x*11+y*7+seed)*2;
+    let rindex=(y*w+x)*4;
+    p[rindex]=clamp(color[0]+shine,0,255);p[rindex+1]=clamp(color[1]+shine,0,255);p[rindex+2]=clamp(color[2]+shine,0,255);p[rindex+3]=Math.round(edge*255);
+  }
+  c.putImageData(temp,0,0);c.save();c.globalCompositeOperation='source-atop';
+  c.strokeStyle='rgba(255,255,231,.2)';c.lineWidth=w/160;
+  for(let n=0;n<12;n++){let x=cx-rx*.7+n*rx*.12;c.beginPath();c.moveTo(x,cy-ry*.75);c.bezierCurveTo(x+rx*.45,cy-ry*.25,x-rx*.4,cy+ry*.25,x+rx*.2,cy+ry*.7);c.stroke();}
+  c.restore();
+}
+for(let i=0;i<pigments.length;i++){
+  let p=pigments[i],button=document.createElement('button');button.className='paint-button';button.setAttribute('aria-label',`挤一点${p.name}颜料`);button.title=`添加${p.name}`;
+  let c=document.createElement('canvas');c.width=140;c.height=100;c.setAttribute('aria-hidden','true');makeDaub(c,p.rgb,i+8);button.appendChild(c);
+  let label=document.createElement('span');label.className='paint-label';label.textContent=p.label;button.appendChild(label);
+  let plus=document.createElement('span');plus.className='add-mark';plus.textContent='+';button.appendChild(plus);button.addEventListener('click',()=>addPaint(i));$('paints').appendChild(button);
+}
+function deposit(px,py,id,radius=61,seed=0){
+  const x0=Math.max(0,Math.floor(px-radius*1.2)),x1=Math.min(W-1,Math.ceil(px+radius*1.2));
+  const y0=Math.max(0,Math.floor(py-radius)),y1=Math.min(H-1,Math.ceil(py+radius));
+  for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++){
+    let i=y*W+x;if(!mask[i])continue;
+    let nx=(x-px)/radius,ny=(y-py)/(radius*.82),angle=Math.atan2(ny,nx),r=Math.hypot(nx,ny);
+    const b=1+.045*Math.sin(7*angle+seed)+.04*Math.sin(11*angle+seed*.7)+.025*Math.sin(23*angle+seed);
+    if(r>b)continue;
+    let edge=clamp((b-r)*22,0,1),groove=Math.sin(x*.33+y*.51+Math.sin(y*.1+seed)*2+seed);
+    let mass=(.62+Math.pow(1-clamp(r,0,1),.5)*.43+groove*.075)*edge;
+    // Adding paint increases the amount; existing pigments remain on the palette.
+    channels[id][i]+=mass;
+    relief[i]=groove*.06+Math.sin(x*.8-y*.27)*.012;
+  }
+  dirty=true;
+}
+deposit(294,202,2,87,3);deposit(424,222,5,91,14);
+const positions=[[350,290],[310,196],[416,222],[395,307],[257,292],[470,280],[330,340],[479,179],[235,223],[392,155]];
+function addPaint(id){
+  if(autoMixing)stopAuto();
+  finishPlacement();
+  // Reuse locations so children can keep adding paint without filling the page.
+  let pos=totalAdded===0?[320,228]:totalAdded===1?[422,239]:positions[(totalAdded-2)%positions.length];
+  pendingPaint={x:pos[0],y:pos[1],id,radius:58,seed:totalAdded*7+id};
+  makeDaub($('placementCanvas'),pigments[id].rgb,id+8);
+  placement.hidden=false;syncPlacement();
+  placementBlob.setAttribute('aria-label',`拖动${pigments[id].name}到想放的位置；方向键移动，回车放下`);
+  placementBlob.focus({preventScroll:true});
+  totalAdded++;
+  $('firstHint').classList.add('hidden');hasInteracted=true;
+  chime(pigments[id].tone,.12);toast(`拖动这团${pigments[id].name}，松手放下`);
+  if(totalAdded===1){hasMixed=false;result=null;latestBlend=null;resetResult();}
+}
+// Keep the new daub separate until it is dropped. Moving it never erases or
+// picks up existing paint. Invalid drops keep the last valid palette position.
+function canPlace(x,y,radius){
+  x=Math.round(x);y=Math.round(y);
+  const rx=Math.ceil(radius*1.13),ry=Math.ceil(radius*.93);
+  if(x-rx<0||x+rx>=W||y-ry<0||y+ry>=H)return false;
+  for(let dy=-ry;dy<=ry;dy++)for(let dx=-rx;dx<=rx;dx++){
+    if(dx*dx/(rx*rx)+dy*dy/(ry*ry)<=1&&!mask[(y+dy)*W+x+dx])return false;
+  }
+  return true;
+}
+function syncPlacement(){
+  if(!pendingPaint)return;
+  const p=pendingPaint,ratio=paint.getBoundingClientRect().height/$('paletteWrap').getBoundingClientRect().height;
+  placement.style.left=p.x/W*100+'%';placement.style.top=p.y/H*ratio*100+'%';
+  placement.style.width=p.radius*2.26/W*100+'%';
+  placement.style.height=p.radius*1.86/H*ratio*100+'%';
+}
+function movePlacement(x,y){
+  if(!pendingPaint)return;
+  if(canPlace(x,y,pendingPaint.radius)){
+    pendingPaint.x=Math.round(x);pendingPaint.y=Math.round(y);syncPlacement();
+  }
+}
+function finishPlacement(){
+  if(!pendingPaint)return;
+  const p=pendingPaint;pendingPaint=null;placementDrag=null;placement.hidden=true;placement.classList.remove('dragging');
+  deposit(p.x,p.y,p.id,p.radius,p.seed);
+  if(placementBlob.hasPointerCapture?.(placementPointer))placementBlob.releasePointerCapture(placementPointer);
+  placementPointer=-1;
+}
+let placementPointer=-1;
+placementBlob.addEventListener('pointerdown',e=>{
+  if(!pendingPaint||placementDrag||(e.pointerType!=='touch'&&e.button!==0))return;
+  e.preventDefault();const p=point(e);
+  placementDrag={pointerId:e.pointerId,offsetX:p.x-pendingPaint.x,offsetY:p.y-pendingPaint.y};
+  placementPointer=e.pointerId;placementBlob.setPointerCapture(e.pointerId);placement.classList.add('dragging');$('cursor').style.display='none';
+});
+placementBlob.addEventListener('pointermove',e=>{
+  if(!placementDrag||e.pointerId!==placementDrag.pointerId)return;
+  e.preventDefault();const p=point(e);movePlacement(p.x-placementDrag.offsetX,p.y-placementDrag.offsetY);
+});
+placementBlob.addEventListener('pointerup',e=>{
+  if(!placementDrag||e.pointerId!==placementDrag.pointerId)return;
+  e.preventDefault();const p=point(e);movePlacement(p.x-placementDrag.offsetX,p.y-placementDrag.offsetY);
+  finishPlacement();paint.focus({preventScroll:true});toast('放好啦！来回搅几下，看看新颜色');
+});
+function cancelPlacementDrag(){placementDrag=null;placementPointer=-1;placement.classList.remove('dragging');}
+placementBlob.addEventListener('pointercancel',cancelPlacementDrag);
+placementBlob.addEventListener('lostpointercapture',cancelPlacementDrag);
+placementBlob.addEventListener('keydown',e=>{
+  if(!pendingPaint)return;
+  const directions={ArrowLeft:[-10,0],ArrowRight:[10,0],ArrowUp:[0,-10],ArrowDown:[0,10]};
+  if(directions[e.key]){e.preventDefault();const [dx,dy]=directions[e.key];movePlacement(pendingPaint.x+dx,pendingPaint.y+dy);}
+  else if(e.key==='Enter'||e.key===' '){e.preventDefault();finishPlacement();paint.focus({preventScroll:true});}
+});
+$('placeHere').addEventListener('click',()=>{finishPlacement();paint.focus({preventScroll:true});toast('放好啦！可以开始搅拌了');});
+window.addEventListener('resize',syncPlacement);
+function render(){
+  if(!dirty)return;dirty=false;
+  let data=imageData.data,color=[0,0,0];
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+    const i=y*W+x,p=i*4,d=density(i);
+    if(d<.025||!mask[i]){data[p+3]=0;continue;}
+    for(let k=0;k<pigments.length;k++)weightsScratch[k]=channels[k][i];
+    pigmentColor(weightsScratch,color);
+    let left=x>0?density(i-1):d,right=x<W-1?density(i+1):d,up=y>0?density(i-W):d,below=y<H-1?density(i+W):d;
+    let dx=(right-left)+(relief[Math.min(N-1,i+1)]-relief[Math.max(0,i-1)])*1.4;
+    let dy=(below-up)+(relief[Math.min(N-1,i+W)]-relief[Math.max(0,i-W)])*1.4;
+    let light=clamp((-dx*.85-dy)*38,-39,34),micro=(grain[i]-.5)*5;
+    let highlight=Math.max(0,light-4)*.19;
+    for(let j=0;j<3;j++)data[p+j]=clamp(color[j]+light+micro+highlight,0,255);
+    data[p+3]=Math.round(clamp(d*8,0,1)*255);
+  }ctx.putImageData(imageData,0,0);
+}
+
+// Exchange equal amounts of pigment between neighboring points, and push only
+// the excess paint forward. Every transfer is subtracted from its source and
+// added to its destination. A thin opaque film stays behind on covered wood.
+const patchMax=160*160;
+const patch=Array.from({length:pigments.length},()=>new Float32Array(patchMax));
+const changes=Array.from({length:pigments.length},()=>new Float32Array(patchMax));
+const contactWeights=new Float32Array(patchMax);
+const retainedFilm=.16;
+function smear(px,py,dx,dy){
+  const radii=[22,33,46],base=radii[brushSize],radius=currentTool==='knife'?base*1.2:currentTool==='brush'?base*.74:base;
+  let speed=Math.hypot(dx,dy);if(speed<.1)return;
+  let ux=dx/speed,uy=dy/speed;
+  const distance=clamp(speed*.88,1,6),shiftX=Math.round(ux*distance),shiftY=Math.round(uy*distance),padding=Math.ceil(distance)+2;
+  const l=Math.max(0,Math.floor(px-radius-padding)),r=Math.min(W-1,Math.ceil(px+radius+padding)),t=Math.max(0,Math.floor(py-radius-padding)),b=Math.min(H-1,Math.ceil(py+radius+padding));
+  if(l>=r||t>=b)return;
+  let pw=r-l+1,ph=b-t+1;
+  for(let k=0;k<pigments.length;k++)changes[k].fill(0,0,pw*ph);
+  contactWeights.fill(0,0,pw*ph);
+  for(let y=t;y<=b;y++)for(let x=l;x<=r;x++){
+    let i=y*W+x,j=(y-t)*pw+x-l;
+    for(let k=0;k<pigments.length;k++)patch[k][j]=channels[k][i];
+  }
+  for(let y=t;y<=b;y++)for(let x=l;x<=r;x++){
+    let i=y*W+x;if(!mask[i])continue;
+    let ox=x-px,oy=y-py,along=ox*ux+oy*uy,cross=-ox*uy+oy*ux;
+    let rad=currentTool==='knife'?Math.max(Math.abs(along)/(radius*.75),Math.abs(cross)/radius):Math.hypot(ox,oy)/radius;
+    if(rad>1)continue;
+    let edge=currentTool==='knife'?clamp((1-rad)*14,0,1):Math.pow(Math.max(0,1-rad*rad),.7);
+    let tx=x+shiftX,ty=y+shiftY;
+    if(tx<l||tx>r||ty<t||ty>b||!mask[ty*W+tx])continue;
+    let j=(y-t)*pw+x-l,to=(ty-t)*pw+tx-l;
+    let sourceMass=0,targetMass=0;
+    for(let k=0;k<pigments.length;k++){sourceMass+=patch[k][j];targetMass+=patch[k][to];}
+    if(sourceMass<.000001)continue;
+    let ridge=Math.sin(cross*(currentTool==='brush'?1.9:.56)+Math.sin(along*.14)*.6);
+    let bristle=currentTool==='brush'?.62+Math.sin(cross*2.3)*.31:1;
+    let contact=edge*bristle*Math.min(1,speed/3);
+    contactWeights[j]=contact;
+    let exchange=contact*(currentTool==='mix'?.22:.16)*Math.min(sourceMass,targetMass);
+    let pushed=contact*(currentTool==='knife'?.28:.22)*Math.max(0,sourceMass-retainedFilm);
+    for(let k=0;k<pigments.length;k++){
+      let forward=patch[k][j]/sourceMass*(pushed+exchange);
+      let backward=targetMass>0?patch[k][to]/targetMass*exchange:0;
+      let transfer=forward-backward;
+      changes[k][j]-=transfer;changes[k][to]+=transfer;
+    }
+    relief[i]=lerp(relief[i],ridge*.047+Math.sin(cross*2.1)*.008,edge*.5);
+  }
+  // Gently blend all paint touched by this dab. Weighted relaxation conserves
+  // each pigment and local thickness, but makes a short swipe visibly change color.
+  const touched=Array(pigments.length).fill(0);let touchedMass=0;
+  for(let y=t;y<=b;y++)for(let x=l;x<=r;x++){
+    let i=y*W+x,j=(y-t)*pw+x-l;
+    for(let k=0;k<pigments.length;k++){
+      const value=patch[k][j]+changes[k][j];channels[k][i]=value;
+      touched[k]+=value*contactWeights[j];
+    }
+  }
+  touchedMass=touched.reduce((a,b)=>a+b,0);
+  if(touchedMass>0){
+    const strength=currentTool==='mix'?.34:currentTool==='knife'?.26:.2;
+    for(let k=0;k<pigments.length;k++)touched[k]/=touchedMass;
+    for(let y=t;y<=b;y++)for(let x=l;x<=r;x++){
+      const i=y*W+x,j=(y-t)*pw+x-l,amount=contactWeights[j]*strength;
+      if(amount===0)continue;
+      const mass=density(i);
+      for(let k=0;k<pigments.length;k++)channels[k][i]=lerp(channels[k][i],mass*touched[k],amount);
+    }
+  }
+  // Read an actual point under the tool, not an average of separate paint blobs.
+  const sampleX=Math.round(px),sampleY=Math.round(py);
+  if(sampleX>=0&&sampleX<W&&sampleY>=0&&sampleY<H){
+    const i=sampleY*W+sampleX,mass=density(i);
+    if(mask[i]&&mass>.025){
+      latestBlend=channels.map(channel=>channel[i]/mass);
+      if(latestBlend.filter(v=>v>.08).length>=2){hasMixed=true;mixDistance+=speed;}
+    }
+  }
+  dirty=true;
+}
+function point(e){let box=paint.getBoundingClientRect();return{x:(e.clientX-box.left)/box.width*W,y:(e.clientY-box.top)/box.height*H};}
+function cursorAt(e){let p=point(e),b=paint.getBoundingClientRect();hoverPoint=p;const cu=$('cursor');let rad=[22,33,46][brushSize]*(currentTool==='knife'?1.2:currentTool==='brush'?.74:1);cu.style.left=p.x/W*100+'%';cu.style.top=p.y/H*(b.height/$('paletteWrap').clientHeight)*100+'%';cu.style.width=cu.style.height=rad*2/W*b.width+'px';cu.style.borderRadius=currentTool==='knife'?'20%':'50%';cu.style.display=e.pointerType==='touch'?'none':'block';}
+paint.addEventListener('pointerdown',e=>{
+  if(e.button!==0&&e.pointerType!=='touch')return;e.preventDefault();if(autoMixing)stopAuto();
+  if(placementDrag)return;
+  finishPlacement();
+  down=true;previous=point(e);lastInput=previous;moveQueue.length=0;
+  paint.setPointerCapture(e.pointerId);$('firstHint').classList.add('hidden');hasInteracted=true;cursorAt(e);startScrape();
+});
+paint.addEventListener('pointermove',e=>{
+  cursorAt(e);if(!down)return;e.preventDefault();
+  const coalesced=e.getCoalescedEvents?e.getCoalescedEvents():[e];
+  for(const event of coalesced.length?coalesced:[e]){let p=point(event);moveQueue.push(p);lastInput=p;}
+});
+function endStroke(e){if(!down)return;down=false;stopScrape();if(e&&paint.hasPointerCapture(e.pointerId))paint.releasePointerCapture(e.pointerId);}
+paint.addEventListener('pointerup',endStroke);paint.addEventListener('pointercancel',endStroke);paint.addEventListener('lostpointercapture',()=>{down=false;stopScrape();});
+paint.addEventListener('pointerleave',()=>{if(!down)$('cursor').style.display='none';});
+window.addEventListener('blur',()=>{down=false;moveQueue.length=0;previous=null;stopScrape();if(autoMixing)stopAuto();});
+function processMove(p,budget=32){
+  if(!previous){previous=p;return;}
+  let dx=p.x-previous.x,dy=p.y-previous.y,len=Math.hypot(dx,dy),steps=Math.min(budget,Math.ceil(len/5));
+  if(!steps)return;
+  let used=Math.min(len,steps*5),stepX=dx/len*used/steps,stepY=dy/len*used/steps;
+  for(let s=0;s<steps;s++){previous={x:previous.x+stepX,y:previous.y+stepY};smear(previous.x,previous.y,stepX,stepY);}
+  return used<len-.1;
+}
+function tick(now){
+  let changed=false;
+  if(autoMixing){
+    let elapsed=(now-autoStart)/1000;
+    if(elapsed>7.5){stopAuto();toast(hasMixed?'颜料慢慢混在一起啦！':'再加一种颜色，继续试试看');}
+    else{
+      // Sweep the actual painted area, so the demonstration also works after reset.
+      let a=elapsed*3.4,cx=autoCenter.x,cy=autoCenter.y;
+      let p={x:cx+Math.cos(a)*autoCenter.rx*Math.sin(elapsed*.7+.7),y:cy+Math.sin(a)*autoCenter.ry};
+      processMove(p,18);changed=true;
+    }
+  }else if(moveQueue.length){
+    let p=moveQueue.shift();let more=processMove(p,18);if(more)moveQueue.unshift(p);changed=true;
+    if(moveQueue.length>18)moveQueue.splice(1,moveQueue.length-4);
+  }
+  if(dirty)render();
+  if(changed&&now-readTick>180){readTick=now;updateResult();}
+  requestAnimationFrame(tick);
+}
+let autoCenter={x:360,y:245,rx:120,ry:82};
+function startAuto(){
+  finishPlacement();
+  if(totalAdded===0){toast('先点左边的颜色，挤一点颜料吧');return;}
+  if(autoMixing){stopAuto();return;}
+  let mass=0,cx=0,cy=0,minX=W,maxX=0,minY=H,maxY=0;
+  for(let y=0;y<H;y+=6)for(let x=0;x<W;x+=6){let d=density(y*W+x);if(d>.15){mass+=d;cx+=x*d;cy+=y*d;minX=Math.min(minX,x);maxX=Math.max(maxX,x);minY=Math.min(minY,y);maxY=Math.max(maxY,y);}}
+  if(mass<1)return;autoCenter={x:cx/mass,y:cy/mass,rx:clamp((maxX-minX)*.4,55,150),ry:clamp((maxY-minY)*.34,38,90)};
+  autoMixing=true;autoStart=performance.now();previous={x:autoCenter.x,y:autoCenter.y};moveQueue.length=0;$('firstHint').classList.add('hidden');$('autoMix').innerHTML='停一下 <span>Ⅱ</span>';startScrape();
+}
+function stopAuto(){autoMixing=false;previous=null;$('autoMix').innerHTML='一起搅拌 <span>↻</span>';stopScrape();updateResult();}
+$('autoMix').addEventListener('click',startAuto);
+paint.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();startAuto();}});
+for(const button of document.querySelectorAll('.tool'))button.addEventListener('click',()=>{
+  finishPlacement();
+  currentTool=button.dataset.tool;
+  document.querySelectorAll('.tool').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));});
+  $('toolHint').textContent={mix:'按住并慢慢拖动，让两种颜料碰个面',brush:'轻轻画一笔，把颜色带到新的地方',knife:'像抹果酱一样，把厚厚的颜料推开'}[currentTool];
+});
+$('brushSize').addEventListener('click',()=>{brushSize=(brushSize+1)%3;[...$('brushSize').children].forEach((el,i)=>el.classList.toggle('selected',i===brushSize));$('brushSize').setAttribute('aria-label',`当前${['小','中','大'][brushSize]}笔触，点击切换`);toast(`换成${['小','中','大'][brushSize]}笔触啦`);});
+function resetResult(){
+  $('resultCanvas').getContext('2d').clearRect(0,0,220,150);$('resultPlaceholder').hidden=false;$('resultName').textContent='搅一搅，看看吧';$('saveColor').disabled=true;
+}
+$('clear').addEventListener('click',()=>{
+  pendingPaint=null;placement.hidden=true;cancelPlacementDrag();
+  if(autoMixing)stopAuto();channels.forEach(a=>a.fill(0));relief.fill(0);totalAdded=0;hasMixed=false;latestBlend=null;result=null;mixDistance=0;moveQueue.length=0;previous=null;dirty=true;challengeWon=false;$('challengeSuccess').hidden=true;$('showHint').hidden=false;resetResult();$('firstHint').classList.add('hidden');toast('调色盘干净啦，选两种颜色再来一次');chime(523,.12);
+});
+function family(weights){
+  const color=pigmentColor(weights),targets={green:[89,154,72],orange:[239,137,53],purple:[143,86,179],pink:[226,151,169]};
+  let best='other',distance=Infinity;
+  for(const [name,target] of Object.entries(targets)){const d=Math.hypot(color[0]-target[0],color[1]-target[1],color[2]-target[2]);if(d<distance){distance=d;best=name;}}
+  return distance<92?best:'other';
+}
+function updateResult(){
+  if(!latestBlend||!hasMixed)return;
+  let sources=latestBlend.filter(x=>x>.07).length;if(sources<2)return;
+  const color=pigmentColor(latestBlend).map(Math.round),name='新颜色';
+  result={rgb:color,name,weights:[...latestBlend]};
+  makeDaub($('resultCanvas'),color,12);$('resultPlaceholder').hidden=true;$('resultName').textContent='这是我调出的颜色';$('saveColor').disabled=false;
+  if(!challengeWon&&family(latestBlend)===challenges[currentChallenge].family&&mixDistance>110){
+    challengeWon=true;$('challengeSuccess').hidden=false;$('showHint').hidden=true;$('challengeHint').hidden=true;celebrate();toast('你调出了小任务的颜色！');speak('你找到小任务的颜色啦！');
+  }
+}
+const leafArt=`<svg viewBox="0 0 100 80" aria-hidden="true"><path d="M47 68C21 70 13 45 24 28S67 9 83 5C83 39 75 65 47 68Z" fill="#7c9c58"/><path d="M29 48C38 32 65 26 81 9C70 43 50 57 29 48Z" fill="#92ad6f"/><path d="M26 78C32 59 56 40 76 17M40 57l-2-19M53 42l17-2" fill="none" stroke="#577b42" stroke-width="2.4" stroke-linecap="round"/><path d="m15 19 2-7m-7 11-6-1m82 37 5 4" stroke="#b7c696" stroke-width="2" stroke-linecap="round"/></svg>`;
+const orangeArt=`<svg viewBox="0 0 100 80" aria-hidden="true"><path d="M52 18c-8-11-1-15 10-11-2 9-6 11-10 11" fill="#83a265"/><path d="M51 25v-12" stroke="#7a8456" stroke-width="3"/><path d="M77 46c0 21-13 30-28 29S20 63 21 46c0-17 10-26 29-25 17-2 27 10 27 25Z" fill="#eaa34f"/><path d="M32 37c3-5 7-6 10-5" stroke="#f7c57e" stroke-width="4" stroke-linecap="round"/><g fill="#d78c3c"><circle cx="63" cy="49" r="1"/><circle cx="65" cy="57" r="1"/><circle cx="55" cy="61" r="1"/></g></svg>`;
+const grapeArt=`<svg viewBox="0 0 100 80" aria-hidden="true"><path d="M50 22q-6-17 11-18" fill="none" stroke="#7d9260" stroke-width="3"/><path d="M51 15q16-17 24-4-10 13-24 4" fill="#90a477"/><g stroke="#88719c" stroke-width="1"><circle cx="38" cy="29" r="12" fill="#aa8eb9"/><circle cx="59" cy="29" r="12" fill="#a085b3"/><circle cx="29" cy="46" r="12" fill="#a68bb6"/><circle cx="49" cy="47" r="12" fill="#9778ab"/><circle cx="69" cy="46" r="12" fill="#a087b4"/><circle cx="39" cy="63" r="11" fill="#a58ab5"/><circle cx="59" cy="63" r="11" fill="#9175a6"/><circle cx="50" cy="75" r="8" fill="#a88db9"/></g></svg>`;
+const pinkArt=`<svg viewBox="0 0 100 80" aria-hidden="true"><g fill="#e5a4ad"><ellipse cx="50" cy="23" rx="12" ry="18"/><ellipse cx="31" cy="37" rx="12" ry="18" transform="rotate(-55 31 37)"/><ellipse cx="70" cy="37" rx="12" ry="18" transform="rotate(55 70 37)"/><ellipse cx="38" cy="59" rx="12" ry="18" transform="rotate(30 38 59)"/><ellipse cx="63" cy="59" rx="12" ry="18" transform="rotate(-30 63 59)"/></g><circle cx="50" cy="44" r="12" fill="#e6c76f"/><circle cx="47" cy="40" r="3" fill="#f1da8e"/></svg>`;
+const challenges=[
+ {family:'green',title:'调出小树叶的绿',text:'哪两种颜色，可以变成绿色呢？',hint:'试试黄色 ＋ 蓝色。画个圈，让它们抱在一起。',art:leafArt},
+ {family:'orange',title:'调出小橘子的橙',text:'给小橘子，调一种暖暖的颜色。',hint:'试试红色 ＋ 黄色。黄色多一点，会更亮哦。',art:orangeArt},
+ {family:'purple',title:'调出小葡萄的紫',text:'小葡萄的颜色，藏在哪里呢？',hint:'试试红色 ＋ 蓝色。慢慢搅拌，紫色就出现了。',art:grapeArt},
+ {family:'pink',title:'调出小花朵的粉',text:'让红色变得柔柔的，要加什么呢？',hint:'试试红色 ＋ 白色。白色越多，粉色越浅。',art:pinkArt}
+];
+function displayChallenge(){let c=challenges[currentChallenge];$('targetArt').innerHTML=c.art;$('challengeTitle').textContent=c.title;$('challengeText').textContent=c.text;$('challengeHint').textContent=c.hint;$('challengeHint').hidden=true;$('challengeSuccess').hidden=true;$('showHint').hidden=false;$('showHint').innerHTML='给我一点提示 <span>＋</span>';challengeWon=false;}
+$('nextChallenge').addEventListener('click',()=>{currentChallenge=(currentChallenge+1)%challenges.length;displayChallenge();chime(440,.1);});
+$('showHint').addEventListener('click',()=>{$('challengeHint').hidden=!$('challengeHint').hidden;$('showHint').innerHTML=$('challengeHint').hidden?'给我一点提示 <span>＋</span>':'收起小提示 <span>－</span>';if(!$('challengeHint').hidden)speak(challenges[currentChallenge].hint);});
+displayChallenge();
+function renderCollection(){
+  $('collectionCount').textContent=collection.length;const box=$('collectionColors');
+  if(!collection.length)return;box.replaceChildren();
+  for(const item of collection){let button=document.createElement('button');button.className='saved-color';button.style.setProperty('--saved',rgb(item.rgb));button.title=item.name;button.setAttribute('aria-label',`收藏的${item.name}`);const daub=document.createElement('i'),name=document.createElement('span');name.textContent=item.name;button.append(daub,name);button.addEventListener('click',()=>{toast(`你的${item.name}，已经好好收在口袋里啦`);speak(item.name);});box.appendChild(button);}
+}
+$('saveColor').addEventListener('click',()=>{
+  if(!result)return;
+  if(collection.some(c=>Math.hypot(...c.rgb.map((v,i)=>v-result.rgb[i]))<12)){toast('这颗颜色已经在口袋里啦，再试试别的配方');return;}
+  if(collection.length>=24){toast('口袋装满啦，可以带走你的作品留作纪念');return;}
+  collection.push({...result,name:`颜色 ${collection.length+1}`});let saved=true;try{localStorage.setItem('little-color-studio.v1',JSON.stringify(collection));}catch(e){saved=false;}
+  renderCollection();$('collectionColors').scrollTo({left:$('collectionColors').scrollWidth,behavior:'smooth'});chime(659,.22);toast(saved?'新颜色装进口袋啦！':'颜色收好了；当前浏览器无法在下次打开时保留');
+});
+renderCollection();
+$('export').addEventListener('click',()=>{
+  finishPlacement();render();
+  const output=document.createElement('canvas');output.width=1600;output.height=1160;let c=output.getContext('2d');c.fillStyle='#f5f3eb';c.fillRect(0,0,1600,1160);c.textAlign='center';c.fillStyle='#43553f';c.font='bold 44px "PingFang SC",sans-serif';c.fillText('小小调色家的颜色世界',800,105);c.fillStyle='#9b9f8a';c.font='20px "PingFang SC",sans-serif';c.fillText('每一种新颜色，都是一个小发现',800,150);c.drawImage(wood,128,190,1344,868);c.drawImage(paint,128,190,1344,868);c.fillStyle='#8f9980';c.font='20px "PingFang SC",sans-serif';c.fillText('小小的手，大大的色彩世界。',800,1095);
+  output.toBlob(blob=>{if(!blob){toast('图片暂时没有生成，请再试一次');return;}let url=URL.createObjectURL(blob),a=document.createElement('a');a.download='小小调色家的作品.png';a.href=url;a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);toast('你的作品已生成，留住这次颜色发现吧');},'image/png');
+});
+function toast(message){$('toast').textContent=message;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2600);}
+function ensureAudio(){try{if(!audioContext)audioContext=new(window.AudioContext||window.webkitAudioContext)();if(audioContext.state==='suspended')audioContext.resume();return audioContext;}catch(e){return null;}}
+function chime(freq,duration=.18){if(!audioEnabled)return;const ac=ensureAudio();if(!ac)return;let o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=freq;g.gain.setValueAtTime(.0001,ac.currentTime);g.gain.exponentialRampToValueAtTime(.065,ac.currentTime+.014);g.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+duration);o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+duration+.03);}
+function startScrape(){
+  if(!audioEnabled||scrapeNode)return;const ac=ensureAudio();if(!ac)return;
+  if(!noiseBuffer){noiseBuffer=ac.createBuffer(1,ac.sampleRate*2,ac.sampleRate);let d=noiseBuffer.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1);}
+  scrapeNode=ac.createBufferSource();scrapeNode.buffer=noiseBuffer;scrapeNode.loop=true;let filter=ac.createBiquadFilter();filter.type='lowpass';filter.frequency.value=550;scrapeGain=ac.createGain();scrapeGain.gain.value=.028;scrapeNode.connect(filter);filter.connect(scrapeGain);scrapeGain.connect(ac.destination);scrapeNode.start();
+}
+function stopScrape(){if(scrapeNode){try{scrapeNode.stop();scrapeNode.disconnect();scrapeGain.disconnect();}catch(e){}scrapeNode=null;}}
+function speak(text){if(!audioEnabled||!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(text);utterance.lang='zh-CN';utterance.rate=.85;utterance.volume=.65;window.speechSynthesis.speak(utterance);}
+$('sound').addEventListener('click',()=>{audioEnabled=!audioEnabled;$('sound').setAttribute('aria-pressed',audioEnabled);$('sound').setAttribute('aria-label',audioEnabled?'关闭声音':'打开声音');$('sound').title=audioEnabled?'关闭声音':'打开声音';if(audioEnabled){ensureAudio();speak('你好，小小调色家。选两种颜色，慢慢搅一搅吧。');}else{stopScrape();if('speechSynthesis'in window)window.speechSynthesis.cancel();}toast(audioEnabled?'声音打开啦':'声音关掉啦');});
+function celebrate(){
+  chime(523,.2);setTimeout(()=>chime(659,.2),140);setTimeout(()=>chime(784,.35),280);
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  for(let i=0;i<26;i++){let el=document.createElement('i');el.style.left=20+rand()*60+'%';el.style.background=['#d7b762','#94aa7c','#db9b79','#84a7b6','#b29bbc'][i%5];el.style.animationDelay=rand()*.4+'s';el.style.setProperty('--drift',(rand()-.5)*260+'px');$('confetti').append(el);setTimeout(()=>el.remove(),3000);}
+}
+render();requestAnimationFrame(tick);
+})();
+
+</script>
 </body></html>
